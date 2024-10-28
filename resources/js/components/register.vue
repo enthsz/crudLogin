@@ -52,12 +52,14 @@ export default {
                     password: this.password,
                     c_password: this.password_confirmation
                 });
+                console.log(response.status);
 
-                if (response.status == 200) {
-                    this.$router.push('/login');
+                if (response.status === 201) {
+                    this.$router.push('/login');    
+                    console.log("Redirecting to login...");
                 }
             } catch (err){
-
+                console.error(err); 
             }
                
         }

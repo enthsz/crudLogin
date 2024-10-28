@@ -40,10 +40,13 @@
                 try{
                     const response = await axios.post(apiLink, {
                     email: this.email,
-                    password: this.password
-                    
+                    password: this.password,
                 });
-                console.log(response)
+                if(response.status === 200){
+                    localStorage.setItem('accessToken', token);
+
+                    this.$router.push('/')
+                }
 
                 }catch(err){
                     
